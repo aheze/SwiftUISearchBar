@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var searchBar = SearchBarConfigurator()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                Text("Hello, world!")
+                Text("Search Text: \(searchBar.searchText)")
+            }
+            .navigationTitle("Search Bar")
+            .add(searchBar)
+        }
     }
 }
 
